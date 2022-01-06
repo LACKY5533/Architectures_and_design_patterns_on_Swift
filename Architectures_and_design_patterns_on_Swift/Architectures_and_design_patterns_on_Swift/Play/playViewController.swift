@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol playViewControllerDelegate: UIViewController {
+    func didEndGame(withResults result: Int)
+}
+
 class playViewController: UIViewController {
 
     @IBOutlet weak var questionLabel: UILabel!
@@ -15,6 +19,9 @@ class playViewController: UIViewController {
     @IBOutlet weak var answer_2: UILabel!
     @IBOutlet weak var answer_3: UILabel!
     @IBOutlet weak var answer_4: UILabel!
+    
+    weak var playDelegate: playViewControllerDelegate?
+    var modeGame: ModeGame = .serially
     
     let game = Game.shared
     
@@ -26,17 +33,23 @@ class playViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let items: [Question] = [
-            .init(question: "Сколько длилась столетняя война?", answers: ["100", "97", "78", "116"], rightAnswer: "116"),
-            .init(question: "Какое животное приносит детей?", answers: ["Лиса", "Аист", "Заяц", "Черепаха"], rightAnswer: "Аист"),
-            .init(question: "Какуб часть тела также называют Атлант?", answers: ["головной мозг", "шестая пара рёбер", "шейный позвонок", "часть плеча"], rightAnswer: "шейный позвонок"),
-            .init(question: "Сколько морей омывает Балканский полуостров?", answers: ["3", "4", "5", "6"], rightAnswer: "6"),
-            .init(question: "Какую страну не пересекает экватор?", answers: ["Панама", "Кения", "Бразилия", "Индонезия"], rightAnswer: "Панама")]
+//        Game.shared.clearQuestion()
+//        var question = Question(question: "Сколько длилась столетняя война?", answers: ["100", "97", "78", "116"], rightAnswer: "116")
+//        Game.shared.addQuestion(question)
+//        question = Question(question: "Какое животное приносит детей?", answers: ["Лиса", "Аист", "Заяц", "Черепаха"], rightAnswer: "Аист")
+//        Game.shared.addQuestion(question)
+//        question = Question(question: "Какуб часть тела также называют Атлант?", answers: ["головной мозг", "шестая пара рёбер", "шейный позвонок", "часть плеча"], rightAnswer: "шейный позвонок")
+//        Game.shared.addQuestion(question)
+//        question = Question(question: "Сколько морей омывает Балканский полуостров?", answers: ["3", "4", "5", "6"], rightAnswer: "6")
+//        Game.shared.addQuestion(question)
+//        question = Question(question: "Какую страну не пересекает экватор?", answers: ["Панама", "Кения", "Бразилия", "Индонезия"], rightAnswer: "Панама")
+//        Game.shared.addQuestion(question)
         
-        self.q = items
+        self.q = Game.shared.question
         
+        n = Game.shared.question.count
+        i = 0
         
-        n = q.count
         questions()
         
         game.gameSession?.all += 1
@@ -68,6 +81,8 @@ class playViewController: UIViewController {
             let result = Results(date: Date(), score: score)
             Game.shared.addResults(result)
             
+            self.playDelegate?.didEndGame(withResults: score)
+            
             let mainViewController = R.Storyboard.Main.instantiateInitialViewController()
             mainViewController?.modalPresentationStyle = .fullScreen
             self.present(mainViewController!, animated: true)
@@ -82,6 +97,8 @@ class playViewController: UIViewController {
         let score = i
         let result = Results(date: Date(), score: score)
         Game.shared.addResults(result)
+        
+        self.playDelegate?.didEndGame(withResults: score)
         
         let mainViewController = R.Storyboard.Main.instantiateInitialViewController()
         mainViewController?.modalPresentationStyle = .fullScreen

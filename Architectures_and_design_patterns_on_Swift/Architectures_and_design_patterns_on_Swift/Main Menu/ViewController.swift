@@ -26,5 +26,10 @@ class ViewController: UIViewController {
         self.present(resultsViewController!, animated: true)
     }
     
+    @IBAction func setting_Button(_ sender: Any) {
+        let settingsViewController = R.Storyboard.settings.instantiateInitialViewController()
+        settingsViewController?.modalPresentationStyle = .fullScreen
+        self.present(settingsViewController!, animated: true)
+    }
 }
 
