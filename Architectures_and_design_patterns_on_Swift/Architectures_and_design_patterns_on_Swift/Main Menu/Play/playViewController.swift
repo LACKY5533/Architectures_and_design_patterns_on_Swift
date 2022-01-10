@@ -21,7 +21,8 @@ class playViewController: UIViewController {
     @IBOutlet weak var answer_4: UILabel!
     
     weak var playDelegate: playViewControllerDelegate?
-    var modeGame: ModeGame = .serially
+    
+//    var modeGame: ModeGame = .serially
     
     let game = Game.shared
     
@@ -45,7 +46,15 @@ class playViewController: UIViewController {
 //        question = Question(question: "Какую страну не пересекает экватор?", answers: ["Панама", "Кения", "Бразилия", "Индонезия"], rightAnswer: "Панама")
 //        Game.shared.addQuestion(question)
         
-        self.q = Game.shared.question
+        if Game.shared.modeGame == .serially {
+            let strategySerially = SeriallyCreateQuestions()
+            self.q = strategySerially.questionsStrategy()
+        } else if Game.shared.modeGame == .randomly {
+            let strategyRandomly = RandomlyCreateQuestions()
+            self.q = strategyRandomly.questionsStrategy()
+        }
+        
+//        self.q = Game.shared.question
         
         n = Game.shared.question.count
         i = 0

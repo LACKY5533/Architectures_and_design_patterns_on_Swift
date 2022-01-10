@@ -46,12 +46,24 @@
                                     <action selector="setting_Button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4BI-nL-fw1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abM-4G-3bX">
+                                <rect key="frame" x="89" y="568" width="236" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Добавить вопрос">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addQuestion_Button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pfS-a9-H87"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
+                            <constraint firstItem="abM-4G-3bX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0JG-4m-n3G"/>
                             <constraint firstItem="jSJ-EP-qGl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Im-VR-iKt"/>
                             <constraint firstItem="0Fo-on-3CX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JyV-4z-Nnw"/>
+                            <constraint firstItem="abM-4G-3bX" firstAttribute="top" secondItem="jSJ-EP-qGl" secondAttribute="bottom" constant="60" id="PqW-vO-wlE"/>
                             <constraint firstItem="0Fo-on-3CX" firstAttribute="top" secondItem="HdV-aU-cBc" secondAttribute="bottom" constant="60" id="kCA-1X-T8d"/>
                             <constraint firstItem="HdV-aU-cBc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rfC-or-c3Y"/>
                             <constraint firstItem="HdV-aU-cBc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="wpX-iw-F6A"/>

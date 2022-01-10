@@ -18,10 +18,10 @@ class settingsViewController: UIViewController {
     @IBAction func Change_Button(_ sender: Any) {
         if modeLabel.text == "Режим: последовательно" {
             modeLabel.text = "Режим: случайно"
-            Game.shared.howIsGame = .randomly
+            Game.shared.modeGame = .randomly
         } else {
             modeLabel.text = "Режим: последовательно"
-            Game.shared.howIsGame = .serially
+            Game.shared.modeGame = .serially
         }
     }
     

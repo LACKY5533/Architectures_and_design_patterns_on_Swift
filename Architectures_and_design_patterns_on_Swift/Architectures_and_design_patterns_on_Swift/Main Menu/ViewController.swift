@@ -31,5 +31,11 @@ class ViewController: UIViewController {
         settingsViewController?.modalPresentationStyle = .fullScreen
         self.present(settingsViewController!, animated: true)
     }
+    
+    @IBAction func addQuestion_Button(_ sender: Any) {
+        let addQuestionViewController = R.Storyboard.addQuestion.instantiateInitialViewController()
+        addQuestionViewController?.modalPresentationStyle = .fullScreen
+        self.present(addQuestionViewController!, animated: true)
+    }
 }
 

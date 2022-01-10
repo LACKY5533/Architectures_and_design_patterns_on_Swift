@@ -48,6 +48,6 @@ final class Game {
     
     var gameSession: GameSession?
     
-    var howIsGame: ModeGame = .serially
+    var modeGame: ModeGame = .serially
     
 }
