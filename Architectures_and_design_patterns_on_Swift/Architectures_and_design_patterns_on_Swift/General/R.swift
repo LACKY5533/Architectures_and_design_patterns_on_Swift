@@ -13,6 +13,8 @@ enum R {
     static let Main: UIStoryboard = .init(name: "Main", bundle: nil)
     static let play: UIStoryboard = .init(name: "play", bundle: nil)
     static let results: UIStoryboard = .init(name: "results", bundle: nil)
+    static let settings: UIStoryboard = .init(name: "settings", bundle: nil)
+    static let addQuestion: UIStoryboard = .init(name: "addQuestion", bundle: nil)
     }
     
     enum Nib {
