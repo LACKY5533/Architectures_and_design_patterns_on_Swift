@@ -10,11 +10,15 @@ import Foundation
 import UIKit
 
 final class SearchBuilder {
-    
+
     static func build() -> (UIViewController & SearchViewInput) {
-        let presenter = SearchPresenter()
+        let interactor = SearchInteractor()
+        let router = SearchRouter()
+        let presenter = SearchPresenter(interactor: interactor, router: router)
         let viewController = SearchViewController(presenter: presenter)
+        router.viewController = viewController
         presenter.viewInput = viewController
+
         return viewController
     }
 }

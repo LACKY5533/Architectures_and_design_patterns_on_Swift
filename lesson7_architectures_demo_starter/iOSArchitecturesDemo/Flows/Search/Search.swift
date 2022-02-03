@@ -9,15 +9,27 @@
 import Foundation
 import UIKit
 
-final class Search {
-    
-    private let searchService = ITunesSearchService()
-    
+class Search {
     weak var viewInput: (UIViewController & SearchViewInput)?
-    
-    
-    private func requestApps(with query: String) {
-        self.searchService.getApps(forQuery: query) { [weak self] result in
+    let interactor: SearchInteractorInput
+    let router: SearchRouterInput
+    private let searchService = ITunesSearchService()
+
+    init(interactor: SearchInteractorInput, router: SearchRouterInput) {
+        self.interactor = interactor
+        self.router = router
+    }
+
+    private func openAppDetails(with app: ITunesApp) {
+        let appDetailViewController = AppDetailViewController(app: app)
+        viewInput?.navigationController?.pushViewController(appDetailViewController, animated: true)
+    }
+}
+
+extension Search: SearchViewOutput {
+    func viewDidSearch(with query: String) {
+        viewInput?.throbber(show: true)
+        interactor.requestApps(with: query) { [weak self] in
             guard let self = self else { return }
             self.viewInput?.throbber(show: false)
             result
@@ -29,28 +41,13 @@ final class Search {
                     self.viewInput?.hideNoResults()
                     self.viewInput?.searchResults = apps
                 }
-                .withError {
-                    self.viewInput?.showError(error: $0)
+                .withError { (error) in
+                    self.viewInput?.showError(error: error)
                 }
         }
     }
-    
-    private func openAppDetails(with app: ITunesApp) {
-        let appDetaillViewController = AppDetailViewController(app: app)
-        self.viewInput?.navigationController?.pushViewController(appDetaillViewController, animated: true)
-    }
-    
-}
 
-// MARK: - SearchViewOutput
-extension Search: SearchViewOutput {
-    
-    func viewDidSearch(with query: String) {
-        self.viewInput?.throbber(show: true)
-        self.requestApps(with: query)
-    }
-    
-    func viewDidSelectApp(_ app: ITunesApp) {
-        self.openAppDetails(with: app)
+    func viewDidSelectApp(app: ITunesApp) {
+        openAppDetails(with: app)
     }
 }
