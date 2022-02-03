@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8726DF0D27ABFFDE007FA252 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8726DF0C27ABFFDE007FA252 /* SearchRouter.swift */; };
+		8726DF0F27AC0035007FA252 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8726DF0E27AC0035007FA252 /* SearchInteractor.swift */; };
+		8726DF1127AC043F007FA252 /* SearchSongInterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8726DF1027AC043F007FA252 /* SearchSongInterator.swift */; };
+		8726DF1327AC046A007FA252 /* SearchSongRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8726DF1227AC046A007FA252 /* SearchSongRouter.swift */; };
 		87DA22D627A81319000A6E21 /* SongBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DA22D527A81319000A6E21 /* SongBuilder.swift */; };
 		87DA22DA27A81396000A6E21 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DA22D827A81396000A6E21 /* TableViewCell.swift */; };
 		87DA22DB27A81396000A6E21 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87DA22D927A81396000A6E21 /* TableViewCell.xib */; };
@@ -38,6 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8726DF0C27ABFFDE007FA252 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		8726DF0E27AC0035007FA252 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		8726DF1027AC043F007FA252 /* SearchSongInterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongInterator.swift; sourceTree = "<group>"; };
+		8726DF1227AC046A007FA252 /* SearchSongRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongRouter.swift; sourceTree = "<group>"; };
 		87DA22D527A81319000A6E21 /* SongBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBuilder.swift; sourceTree = "<group>"; };
 		87DA22D827A81396000A6E21 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		87DA22D927A81396000A6E21 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -126,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				87DA22E827A81EAA000A6E21 /* SearchSongView.swift */,
+				8726DF1027AC043F007FA252 /* SearchSongInterator.swift */,
+				8726DF1227AC046A007FA252 /* SearchSongRouter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -335,6 +345,8 @@
 			children = (
 				F8114FBD22A3DBF400102830 /* SearchView.swift */,
 				F8A97B342249898E00FB2C0E /* AppCell.swift */,
+				8726DF0C27ABFFDE007FA252 /* SearchRouter.swift */,
+				8726DF0E27AC0035007FA252 /* SearchInteractor.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -472,18 +484,22 @@
 				E0E1D399203AE62E0011E01A /* ITunesApp.swift in Sources */,
 				F8A97B352249898E00FB2C0E /* AppCell.swift in Sources */,
 				F8114FC522A3E77500102830 /* AppDetailView.swift in Sources */,
+				8726DF0F27AC0035007FA252 /* SearchInteractor.swift in Sources */,
 				87DA22DD27A8164A000A6E21 /* SearchBuilder.swift in Sources */,
 				E0E1D387203AE45F0011E01A /* WebRequest.swift in Sources */,
 				87DA22E927A81EAA000A6E21 /* SearchSongView.swift in Sources */,
 				87DA22DA27A81396000A6E21 /* TableViewCell.swift in Sources */,
 				F8A1E03C2248382F00FE6448 /* Monads.swift in Sources */,
 				87DA22E327A81A25000A6E21 /* SearchSong.swift in Sources */,
+				8726DF1327AC046A007FA252 /* SearchSongRouter.swift in Sources */,
 				E0E1D3D4203C4AA50011E01A /* UIColor+Extensions.swift in Sources */,
 				E0E1D3D1203C48D70011E01A /* AppDetailViewController.swift in Sources */,
 				E0E1D358203ADC590011E01A /* NetworkManager.swift in Sources */,
+				8726DF0D27ABFFDE007FA252 /* SearchRouter.swift in Sources */,
 				87DA22D627A81319000A6E21 /* SongBuilder.swift in Sources */,
 				87DA22E127A819B1000A6E21 /* Search.swift in Sources */,
 				E0E1D39C203AE6420011E01A /* ITunesSong.swift in Sources */,
+				8726DF1127AC043F007FA252 /* SearchSongInterator.swift in Sources */,
 				E0E1D2952034A3350011E01A /* SearchViewController.swift in Sources */,
 				87DA22DF27A81888000A6E21 /* SearchInterface.swift in Sources */,
 				87DA22E627A81C1C000A6E21 /* SearchSong.swift in Sources */,

@@ -9,12 +9,16 @@
 import Foundation
 import UIKit
 
-final class SongBuilder {
-    
-    static func build() -> (UIViewController & SongSearchViewInput) {
-        let presenter = SearchSongViewController()
-        let viewController = SearchSongViewController(presenter: presenter)
-        presenter.viewInput = viewController
+class SearchBuilder {
+    static func build() -> (UIViewController & SongViewInput) {
+        
+        let interactor = SearchSongInteractor()
+        let router = SearchSongRouter()
+        let presenter = SearchSongPresenter(interactor: interactor, router: router)
+        let viewController = SongViewController(presenter: presenter)
+        router.viewController = viewController
+        presenter.viewInput = viewController as! UIViewController & SongViewInput
+        
         return viewController
     }
 }
